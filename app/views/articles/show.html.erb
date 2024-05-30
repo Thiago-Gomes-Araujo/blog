@@ -2,5 +2,8 @@
 <p> <%= @article.body %> </p>
 <ul>
     <li><%= link_to 'Edit', edit_article_path(@article) %></li>
+    <li><%= button_to 'Destroy', article_path(@article),
+        method: :delete,
+        data: { "turbo-confirm": 'Are you Sure?'} %></li>
     <li><%= link_to 'Back', root_path %></li>
 </ul>
