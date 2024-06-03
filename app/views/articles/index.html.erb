@@ -1,9 +1,22 @@
-<h1>Olá Mavis Djohanna</h1>
-<%= link_to 'New Article', new_article_path %>
-<ul>
-    <% @articles.each do |article| %>
-        <li>
-           <%= link_to article.title, article %> 
-        </li>
-    <% end %>
-</ul>
+<%# Artigo Grande  Principal%>
+<%= render 'longer_featured'%>
+<%# Colunas div row 2 %>
+<div class="row mb-2">
+<%# Artigo Medio Secundario%>
+<%= render 'medium_featured'%>
+<%= render 'medium_featured'%>
+</div>
+<div class="row g-5">
+    <div class="col-md-8">
+      <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        From the Firehose
+      </h3>
+
+
+      <%= link_to 'New Article', new_article_path, class:'btn btn-primary' %>
+        <%= render @articles%>
+        <%= render 'pagination'%>
+    </div>
+    <%= render 'right_side'%>
+</div>
+
