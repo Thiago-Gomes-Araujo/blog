@@ -11,3 +11,4 @@ pin "feather-icons" # @4.28.0
 pin "chart.js" # @2.9.4
 pin "popper", to: 'popper.js', preload: true
 pin "bootstrap", to: 'bootstrap.min.js', preload: true
+pin "jquery", to: "jquery-3.1.1.min.js", preload: true
