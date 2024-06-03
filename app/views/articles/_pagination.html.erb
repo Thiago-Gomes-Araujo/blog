@@ -13,4 +13,8 @@
     <li class="page-item"><a class="page-link" href="#">Next</a></li>
   </ul>
 </nav>
-<%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+<nav aria-label="Page navigation example">
+<ul class="pagination">
+<%== pagy_nav(@pagy)%>
+</ul>
+</nav>
