@@ -1,33 +1,22 @@
-<h1>Olá Mavis Djohanna</h1>
-<%= link_to 'New Article', new_article_path %>
-<ul>
-    <% @articles.each do |article| %>
-        <li>
-           <%= link_to article.title, article %> 
-        </li>
-    <% end %>
-</ul>
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
+<%# Artigo Grande  Principal%>
+<%= render 'longer_featured'%>
+<%# Colunas div row 2 %>
+<div class="row mb-2">
+<%# Artigo Medio Secundario%>
+<%= render 'medium_featured'%>
+<%= render 'medium_featured'%>
 </div>
+<div class="row g-5">
+    <div class="col-md-8">
+      <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        From the Firehose
+      </h3>
+
+
+      <%= link_to 'New Article', new_article_path %>
+        <%= render @articles%>
+        <%= render 'pagination'%>
+    </div>
+    <%= render 'right_side'%>
+</div>
+
