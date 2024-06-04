@@ -1,25 +1,16 @@
-<%= simple_form_for article do |form|%>
+<%= simple_form_for(@article) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-    <%= form.error_notification %>
-    <%= form.error_notification message: form.object.errors[:base].to_sentence if form.object.errors[:base].present? %>
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :body, input_html: {rows: 12 } %>
+    <%= f.association :category %>
 
-    <% if article.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+  </div>
 
-      <ul>
-        <% article.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-    <%= form.input :title, style: "display: block" %>
-    <%= form.input :body, style: "display: block", input_html: {rows: 12 } %>
-    <br>
-    <p>
-        <%= form.button :submit, class: 'btn btn-primary', id: 'liveAlertPlaceholder' %>
-        <%= link_to 'Back', root_path, class: 'btn btn-secondary'%>
-    </p>
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-primary', id: 'liveAlertPlaceholder' %>
+    <%= link_to 'Back', root_path, class: 'btn btn-secondary'%>
+  </div>
 <% end %>
