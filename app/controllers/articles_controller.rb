@@ -15,16 +15,30 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
+  # def create
+  #  @article = Article.new(article_params)
+
+  #   respond_to do |format|
+  #     if@article.save
+  #       format.html { redirect_to article_url(@article), notice: "User was successfully created." }
+  #       format.json { render :show, status: :created, location:@article }
+  #     else
+  #       format.html { render :new, status: :unprocessable_entity }
+  #       format.json { render json:@article.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+
   def create
-   @article = Article.new(article_params)
+    @article = Article.new(article_params)
 
     respond_to do |format|
-      if@article.save
-        format.html { redirect_to article_url(@article), notice: "User was successfully created." }
-        format.json { render :show, status: :created, location:@article }
+      if @article.save
+        format.html { redirect_to categories_url, notice: "Category was successfully created." }
+        format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json:@article.errors, status: :unprocessable_entity }
+        format.json { render json: @article.errors, status: :unprocessable_entity }
       end
     end
   end
