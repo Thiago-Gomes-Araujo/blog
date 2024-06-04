@@ -5,5 +5,4 @@ class Article < ApplicationRecord
 
     scope :desc_order, -> { order(created_at: :desc) }
     scope :without_highlights, ->(ids) { where("id NOT IN(#{ids})") if ids.present? }
-
 end
