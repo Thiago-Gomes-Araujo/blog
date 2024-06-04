@@ -70,4 +70,4 @@ gem "cssbundling-rails", "~> 1.4"
 
 gem "simple_form", "~> 5.3"
 
-gem 'pagy', '~> 0.6.0'
+gem 'pagy'

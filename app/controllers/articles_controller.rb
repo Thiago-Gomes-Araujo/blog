@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
   def index
-    @pagy, @articles = pagy(Article.all, items: 2)
+   @pagy, @articles = pagy(Article.all, items: 2)
+
   end
 
   def show; end
