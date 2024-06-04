@@ -1,8 +1,12 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
   def index
-   @pagy, @articles = pagy(Article.all, items: 2)
 
+   @highights = Article.desc_order.first(3)
+   highights_ids = @highights.pluck(:id).join(',')
+
+   @pagy, @articles = pagy(Article.desc_order.without_highlights(highights_ids), items: 2)
+   
   end
 
   def show; end
@@ -57,7 +61,6 @@ class ArticlesController < ApplicationController
     end
   end
 
-  
   # def destroy
   #    @article.destroy
   #    redirect_to root_path
